@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="someClass">Hello Yacov</div>
+    <script type="text/javascript">
+        function calAndPrint(numberOne, numberTwo, action) {
+            if (action == '+') {
+                var sum = numberOne + numberTwo;
+                document.writeln("sum result is : " + sum);
+            }
+            else if (action == '-') {
+                var minus = numberOne - numberTwo;
+                document.writeln("minus result is : " + minus);
+            }
+            else if (action == 'x') {
+                var multi = numberOne * numberTwo;
+                document.writeln("multi result is : " + multi);
+            }
+            else if (action == '/') {
+                if (numberTwo != 0) {
+                    var mana = numberOne / numberTwo;
+                    document.writeln("mana result is : " + mana);
+                }
+                else {
+                    alert("your secund number is 0, you c annot divied by 0, please enter diffrent number");
+                }
+            }
+            else {
+                alert("please choose a corect math symbole : +, -, x, /");
+            }
+        }
+        var calcSymoble = "f";
+        var num1 = 40;
+        var num2 = 0;
+        // calAndPrint(num1, num2, calcSymoble);
+        // calcSymoble = "x";
+        // calAndPrint(num1, 5, calcSymoble);
+        // calcSymoble = "-";
+        // calAndPrint(num1, 9, calcSymoble);
+
+        function timer(param) {
+            if (param / 1 == param && param > 0) {
+                for (var i = 0; i <= param; i++) {
+                    document.writeln(i + " ,")
+                }
+            }
+            else {
+                for (var i = 0; i < param.length; i++) {
+                    document.writeln(i)
+                }
+            }
+        }
+        // timer(15);
+        // timer("Hello");
+
+
+        function arryFunction(arry) {
+            if (arry.length) {
+                for (i = 0; i < arry.length; i++) {
+                    if (arry[i] % 2 == 0) {
+                        document.writeln("arry[" + i + "] = " + arry[i])
+                    }
+                }
+            }
+            else {
+
+            }
+        }
+
+        function arryBuilder(num1, num2, num3, num4) {
+            var numsArry = [num1, num2, num3, num4];
+            for (i = 0; i < numsArry.length; i++) {
+                if (numsArry[i] / 1 != numsArry[i]) { //(undefied=="dfdf")
+                    console.log(numsArry[i] + " is not a number");
+                }
+            }
+            return numsArry;
+        }
+        // var ages = [18, 65, 32, 98, 65, 9, 10];
+        // var stuff = ["red", 89, 65, 982, "Hello", true];
+
+        // var password = "TQ2135143165";
+        var password = "sa2165945446";
+        // function checkPassword(passwordToCheck) {
+        //     var isPasswordStrong = false;
+        //     if(passwordToCheck.length>=7){
+        //         if(passwordToCheck[0]/1 != passwordToCheck[0]
+        //         && passwordToCheck[1]/1 != passwordToCheck[1]){
+        //             for(i=2; i< passwordToCheck.length;i++){
+        //                 if(1<=passwordToCheck[i] && passwordToCheck[i]<=8){
+        //                     isPasswordStrong = true;
+        //                 }
+        //                 else{
+        //                     return false;
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     return isPasswordStrong;
+        // }
+        // document.writeln("IT IS A STRONG PASSWORD : " + checkPassword(password))
+
+
+        // function lotto(numbers){
+        //     var winNumber = Math.floor(Math.random() * 11);
+        //     for(i=0; i<numbers.length; i++){
+        //         if(numbers[i]===winNumber){
+        //             return "your number won : "+ numbers[i];
+        //         }
+        //     }
+        //     return "Sorry, no wininig number was found " + winNumber
+        // }
+        // document.writeln(lotto([5,10,7])) 
+
+        // function lotto (numbesArry){
+        //     var wininigNumber = Math.floor(Math.random() * 100);
+        //     for(i= 0;i<numbesArry.length;i++)
+        //     {
+        //         if(wininigNumber == numbesArry[i]){
+        //             return "Congress! you have won your number is : " +numbesArry[i] 
+        //         }
+        //     }
+        //     return "Sory the right number is: " + wininigNumber
+        // }
+        // [35,38,12,73,88,25,23]
+        // document.writeln(lotto([35,38,12,73,88,25,23]))
+
+        // const Person = {
+        //     firstName: '',
+        //     lastName: '',
+        //     age: 0,
+        //     phonNumber: ''
+        // };
+        // Person.firstName = 'Jacob';
+        // Person.lastName = 'Inggidou';
+        // Person.age = 30;
+        // Person.phonNumber = '555-5555-555';
+
+        // document.writeln(`${Person.lastName} `)
+
+        // for (var key of Object.keys(Person)) { 
+        //     document.writeln(Person[key])
+        // }
+        const User = {
+            firstName:'',
+            lastName:'',
+            age:0
+        };
+        for (const key of Object.keys(User)) {
+            User[key] = prompt(`please enter your ${key}`);
+        }
+        document.writeln(`hi there ${User.firstName}`);
+        document.writeln(Date());
+    </script>
+</body>
+
+</html>

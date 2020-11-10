@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="inputId"> הכנס מספר
+    <button id="btnId" onclick="clickEvent()">click</button>
+    <div id="someIdName"></div>
+    <script>
+        var inputElement = document.getElementById("inputId");
+        var mainDiv = document.getElementById("someIdName");
+        var inputValue;
+        function clickEvent() {
+            inputValue = inputElement.value;
+            console.log(inputValue);
+            createList()
+            listStyle()
+        }
+        function createList() {
+            mainDiv.innerHTML += '<ol id="olElement">list : </ol>';
+            var listElement = document.getElementById("olElement");
+            for (let index = 1; index <= inputValue; index++) {
+                listElement.innerHTML +=
+                    `<li id="liElemNo${index}">
+                <img class="liElemClass" src="./${index}.jpg"/>            
+            </li>`;
+            }
+        }
+        function listStyle() {
+            var liElements = document.getElementsByClassName("liElemClass");
+            for (let i = 0; i < liElements.length; i++) {
+                liElements[i].style = "height: 150px;";
+            }
+        }
+    </script>
+</body>
+
+</html>
