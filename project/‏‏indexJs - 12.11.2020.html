@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input type="text">: הכנס צבע
+        <button onclick="changeColor()">change color</button>
+    </div>
+    <div></div>
+    <div id="cloro" style="display: flex;flex-wrap: wrap;"></div>
+    <script>
+        var inputElement = document.getElementsByTagName("input")[0];
+        var div2 = document.getElementsByTagName("div")[1];
+        var colorDiv;
+        function changeColor() {      
+            div2.innerHTML = `<div></div><button>chenge to yellow</button>`
+            colorDiv = div2.childNodes[0]; //div2.firstChild
+            colorDiv.style = `height: 55px;width: 55px;margin: 10px;border: 1px solid black;`
+            for (let i = 0; i < 50; i++) {
+                const element = Math.floor(Math.random() * 1000); //element = 123
+                document.getElementById("cloro").innerHTML += `<div onmouseover=hoverChange(${element})><div>`
+                document.getElementById("cloro").childNodes[i].style = `background:#${element};height: 55px;width: 55px;margin: 10px;border: 1px solid black;`;
+            }
+            colorDiv.style.background = inputElement.value;
+            colorDiv.nextElementSibling.addEventListener("click", changeToYellow);
+        }
+
+        function changeToYellow() {
+            colorDiv.style.background = "yellow";
+        }
+
+        function hoverChange(elementColor) {
+            colorDiv.style.background = "#" + elementColor;
+        }
+
+
+
+
+
+
+
+        // var mainDivChilds = document.getElementById("mainDiv").childNodes;
+        // console.log(mainDivChilds);
+        // var inputElement = document.getElementById("inputId");
+        // var mainDiv = document.getElementById("someIdName");
+        // var inputValue;
+        // function clickEvent() {
+        //     inputValue = inputElement.value;
+        //     console.log(inputValue);
+        //     createList()
+        //     listStyle()
+        // }
+        // function createList() {
+        //     mainDiv.innerHTML += '<ol id="olElement">list : </ol>';
+        //     var listElement = document.getElementById("olElement");
+        //     for (let index = 1; index <= inputValue; index++) {
+        //         listElement.innerHTML +=
+        //             `<li id="liElemNo${index}">
+        //         <img class="liElemClass" src="./${index}.jpg"/>            
+        //     </li>`;
+        //     }
+        // }
+        // function listStyle() {
+        //     var liElements = document.getElementsByClassName("liElemClass");
+        //     for (let i = 0; i < liElements.length; i++) {
+        //         liElements[i].style = "height: 150px;";
+        //     }
+        // }
+
+        // var h1elementsByTagName = document.getElementsByTagName("h1");
+        // console.log(h1elementsByTagName);
+        // for (i = 0; i < h1elementsByTagName.length; i++) {
+        //     h1elementsByTagName[i].style.color = "blue";
+        // }
+        // h1elementsByTagName[2].style.color = "red";
+    </script>
+</body>
+
+</html>
