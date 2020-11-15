@@ -10,14 +10,23 @@
 <body>
     <div>
         <input type="text">: הכנס צבע
-        <button onclick="changeColor()">change color</button>
+        <button>change color</button>
     </div>
     <div></div>
     <div id="cloro" style="display: flex;flex-wrap: wrap;"></div>
     <script>
+        document.getElementsByTagName("div")[0].childNodes[3].addEventListener("click",changeColorRandom)
+        document.getElementsByTagName("div")[0].childNodes[3].addEventListener("mouseover",printColor)
         var inputElement = document.getElementsByTagName("input")[0];
         var div2 = document.getElementsByTagName("div")[1];
         var colorDiv;
+        function printColor (){
+            console.log("color");
+        }
+        
+       function changeColorRandom(){
+           setInterval(changeColor, 1000);
+        }
         function changeColor() {      
             div2.innerHTML = `<div></div><button>chenge to yellow</button>`
             colorDiv = div2.childNodes[0]; //div2.firstChild
