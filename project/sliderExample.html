@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            height: 250px;
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="pervBtn">Previus</button>
+    <img src="./1.jpg" alt="" id="picSlider">
+    <button id="nextBtn">Next</button>
+    <script>
+        var index = 0;
+        document.getElementById("pervBtn").addEventListener("click", changePic);
+        document.getElementsByTagName("button")[1].addEventListener("click", () => changePic("+"));
+        var picturesArry = [
+            "./1.jpg",
+            "./2.jpg",
+            "./3.jpg",
+            "./4.jpg",
+            "./5.jpg",
+            "./6.jpg",
+            "./7.jpg"
+        ];
+        var setIntervalObj = setInterval(changePic, 3000);
+        function changePic(action) {
+            if (action == "+") {
+                nextPic()
+            }
+            else {
+                previusPic()
+            }
+            document.getElementById("picSlider").src = picturesArry[index]
+        }
+        function nextPic() {
+            index++;
+            if (index >= picturesArry.length) {
+                index = 0;
+            }
+        }
+        function previusPic() {
+            index--;
+            if (index < 0) {
+                index = picturesArry.length - 1;
+            }
+        }
+        document.getElementById("picSlider").addEventListener("click", () => clearInterval(setIntervalObj))
+    </script>
+</body>
+
+</html>
