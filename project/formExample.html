@@ -6,37 +6,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>formExample</title>
 </head>
+<style>
+    form {
+        display: grid;
+    }
+
+    input {
+        width: 300px;
+    }
+
+    button {
+        width: 100px;
+        margin: 5px;
+        display: inline;
+    }
+
+    span {
+        color: red;
+    }
+</style>
 
 <body>
-    <form onsubmit="return checkPasswords()">
-        type password : <input required type="text" name="password" id="password"><br />
-        type password Again : <input required type="text" name="passwordAgain" id="passwordAgain">
+    <form onsubmit="return validate()">
+        <label for="fname">first name:</label>
+        <input type="text" name="fname" id="firstName"><span id="fnameSpan"></span><br />
+        <label for="lname">last name:</label>
+        <input type="text" name="lname" id="lastName"><span id="lnameSpan"></span><br />
+        <label for="email">email:</label>
+        <input type="email" name="email" id="email"><span></span><br />
+        <label for="phone">phone number:</label>
+        <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="phone" id="phone"><span></span><br />
+        <label for="profilPic">profil picture:</label>
+        <input type="file" name="profilPic" id="profilPic"><span></span><br />
+        <label for="lname">password :</label>
+        <input type="password" name="password" id="password"><br />
+        <label for="passwordAgain">password Again:</label>
+        <input type="password" name="passwordAgain" id="passwordAgain">
+        <span id="passwordsSpan"></span>
         <br />
         <button id="submitBtn" type="submit">send</button>
-        <br />
         <button type="reset">reset</button>
     </form>
 
     <script>
         //הגדרת משתנים גלובאלים
+        var firstName = document.getElementById("firstName");
+        var lastName = document.getElementById("lastName");
+        var email = document.getElementById("email");
+        var phone = document.getElementById("phone");
+        var profilPic = document.getElementById("profilPic");
         var firstPassword = document.getElementById("password");
         var confirmPassword = document.getElementById("passwordAgain");
         var submitBtn = document.getElementById("submitBtn");
         // פעולות מיידיות לאחר טעינה        
         window.onload = () => {
-            // firstPassword.addEventListener("input",changeToUpperCase)
+            firstName.addEventListener("change", checkFirstName)
+            confirmPassword.addEventListener("input", checkPasswords)
         }
-        // פונקציה לבדיקת תאימות בין קלטים        
+        // פונקציות לבדיקת תאימות בין קלטים 
+        function validate() {
+
+        }
+
+        function checkFirstName() {
+            if (firstName.value.toLowerCase() != "jacob") {
+                document.getElementById("fnameSpan").innerHTML = "You must be Jacob";
+                return false;
+            }
+            document.getElementById("fnameSpan").innerHTML = "";
+            return true;
+        }
+
         function checkPasswords() {
             if (firstPassword.value == confirmPassword.value) {
-                alert("passwords are correct, wellcome :)")
+                document.getElementById("passwordsSpan").innerHTML = "passwords are correct"
                 return true;
             }
-            alert("passwords are not the same, try again :(")
+            document.getElementById("passwordsSpan").innerHTML = "passwords are not the same, try again :("
             return false;
         }
+
         function changeToUpperCase() {
             inputFname.value = inputFname.value.toUpperCase();
+        }
+        function changeToLowerCase(element) {
+            element.value = element.value.toLowerCase();
         }
     </script>
 </body>
