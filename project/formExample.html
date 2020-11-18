@@ -1,23 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>formExample</title>
 </head>
+
 <body>
-    <input type="text" name="fname" id="firstName" oninput="changeToUpperCase()">
+    <form onsubmit="return checkPasswords()">
+        type password : <input required type="text" name="password" id="password"><br />
+        type password Again : <input required type="text" name="passwordAgain" id="passwordAgain">
+        <br />
+        <button id="submitBtn" type="submit">send</button>
+        <br />
+        <button type="reset">reset</button>
+    </form>
+
     <script>
         //הגדרת משתנים גלובאלים
-        var inputFname = document.getElementById("firstName");
+        var firstPassword = document.getElementById("password");
+        var confirmPassword = document.getElementById("passwordAgain");
+        var submitBtn = document.getElementById("submitBtn");
         // פעולות מיידיות לאחר טעינה        
-        window.onload = ()=>{
-            // alert("ברוכים הבאים")
+        window.onload = () => {
+            // firstPassword.addEventListener("input",changeToUpperCase)
+        }
+        // פונקציה לבדיקת תאימות בין קלטים        
+        function checkPasswords() {
+            if (firstPassword.value == confirmPassword.value) {
+                alert("passwords are correct, wellcome :)")
+                return true;
+            }
+            alert("passwords are not the same, try again :(")
+            return false;
         }
         function changeToUpperCase() {
-            // let inputValue = inputFname.value;
             inputFname.value = inputFname.value.toUpperCase();
         }
     </script>
 </body>
+
 </html>
